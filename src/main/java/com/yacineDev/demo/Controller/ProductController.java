@@ -18,4 +18,5 @@ public class ProductController {
     public ResponseEntity getProducts(){
         return new ResponseEntity(productServices.getAllProducts(), HttpStatusCode.valueOf(200));
     }
+
 }

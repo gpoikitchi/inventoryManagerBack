@@ -1,13 +1,14 @@
 package com.yacineDev.demo.ServicesImpl;
 
-import com.yacineDev.demo.Class.Product;
+import com.yacineDev.demo.module.Product;
 import com.yacineDev.demo.Repositories.ProductRepo;
 import com.yacineDev.demo.Services.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+@Component
 public class ProductServicesImpl implements ProductServices {
 
     @Autowired

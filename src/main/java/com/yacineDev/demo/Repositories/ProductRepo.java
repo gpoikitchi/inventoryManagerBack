@@ -1,5 +1,5 @@
 package com.yacineDev.demo.Repositories;
-import com.yacineDev.demo.Class.Product;
+import com.yacineDev.demo.module.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepo extends JpaRepository<Product,Integer> {

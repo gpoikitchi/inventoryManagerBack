@@ -1,6 +1,6 @@
 package com.yacineDev.demo.Services;
 
-import com.yacineDev.demo.Class.Product;
+import com.yacineDev.demo.module.Product;
 
 import java.util.List;
 

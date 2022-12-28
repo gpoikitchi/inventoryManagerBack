@@ -1,7 +1,6 @@
-package com.yacineDev.demo.Class;
+package com.yacineDev.demo.module;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ValueGenerationType;
 
 // the entity to specify that it is a table
 @Entity
