@@ -1,24 +1,38 @@
 package com.yacineDev.demo.module;
-
 import jakarta.persistence.*;
 
-// the entity to specify that it is a table
+import java.io.Serializable;
+
 @Entity
-@Table(name = "Product")
-public class Product {
+public class Product implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // for auto increment
-    private int Id ;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false,updatable = false)
+    private Long id ;
     private String name ;
-    private int price ;
+    private float price ;
+    private int quantity ;
+    private String expirationDate ;
+    private float discount ;
 
-    public int getId() {
-        return Id;
+    Product(){
+
+    }
+    public Product(Long id, String name, float price, int quantity, String expirationDate, float discount) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.expirationDate = expirationDate;
+        this.discount = discount;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -29,11 +43,47 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", expirationDate='" + expirationDate + '\'' +
+                ", discount=" + discount +
+                '}';
     }
 }

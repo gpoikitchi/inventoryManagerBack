@@ -2,6 +2,7 @@ package com.yacineDev.demo.Services;
 
 import com.yacineDev.demo.Repositories.CostumerRepo;
 import com.yacineDev.demo.Repositories.EmployeeRepo;
+import com.yacineDev.demo.exception.CostumerNotFoundException;
 import com.yacineDev.demo.exception.UserNotFoundException;
 import com.yacineDev.demo.module.Costumer;
 import com.yacineDev.demo.module.Employee;
@@ -37,7 +38,7 @@ public class CostumerService {
     }
     @Transactional
     public Costumer findCostumerById(Long id)  {
-        return costumerRepo.findCostumerById(id).orElseThrow(() -> new UserNotFoundException("User By id : "+id+" was not found "));
+        return costumerRepo.findCostumerById(id).orElseThrow(() -> new CostumerNotFoundException("Costumer By id : "+id+" was not found "));
     }
     @Transactional
     public void deleteCostumer(Long id){
