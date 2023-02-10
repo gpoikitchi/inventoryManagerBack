@@ -4,32 +4,42 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="client")
 public class Costumer implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false,updatable = false)
+    @Column(name = "id",nullable = false,updatable = false)
     private Long id;
-    private String name ;
+    @Column(name = "nom")
+    private String nom ;
+    @Column(name = "prenom")
+    private String prenom ;
+    @Column(name = "email")
     private String email;
-    private String phone;
-    private int orders;
-    private Long ordersTotal;
-    private String costumerSince;
-    private boolean isChecked;
+    @Column(name = "nTel")
+    private String nTel;
+    @Column(name = "numRue")
+    private int numRue ;
+    @Column(name = "nomRue")
+    private String nomRue;
+    @Column(name = "codePostal")
+    private int codePostal;
+    @Column(name = "ville")
+    private String ville ;
 
     public Costumer(){
 
     }
-
-    public Costumer(Long id, String name, String email, String phone, int orders, Long ordersTotal, String costumerSince, boolean isChecked) {
+    public Costumer(Long id, String nom, String prenom, String email, String nTel, int numRue, String nomRue, int codePostal, String ville) {
         this.id = id;
-        this.name = name;
+        this.nom = nom;
+        this.prenom = prenom;
         this.email = email;
-        this.phone = phone;
-        this.orders = orders;
-        this.ordersTotal = ordersTotal;
-        this.costumerSince = costumerSince;
-        this.isChecked = isChecked;
+        this.nTel = nTel;
+        this.numRue = numRue;
+        this.nomRue = nomRue;
+        this.codePostal = codePostal;
+        this.ville = ville;
     }
 
     public Long getId() {
@@ -40,12 +50,20 @@ public class Costumer implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getEmail() {
@@ -56,57 +74,58 @@ public class Costumer implements Serializable{
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getnTel() {
+        return nTel;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setnTel(String nTel) {
+        this.nTel = nTel;
     }
 
-    public int getOrders() {
-        return orders;
+    public int getNumRue() {
+        return numRue;
     }
 
-    public void setOrders(int orders) {
-        this.orders = orders;
+    public void setNumRue(int numRue) {
+        this.numRue = numRue;
     }
 
-    public Long getOrdersTotal() {
-        return ordersTotal;
+    public String getNomRue() {
+        return nomRue;
     }
 
-    public void setOrdersTotal(Long ordersTotal) {
-        this.ordersTotal = ordersTotal;
+    public void setNomRue(String nomRue) {
+        this.nomRue = nomRue;
     }
 
-    public String getCostumerSince() {
-        return costumerSince;
+    public int getCodePostal() {
+        return codePostal;
     }
 
-    public void setCostumerSince(String costumerSince) {
-        this.costumerSince = costumerSince;
+    public void setCodePostal(int codePostal) {
+        this.codePostal = codePostal;
     }
 
-    public boolean isChecked() {
-        return isChecked;
+    public String getVille() {
+        return ville;
     }
 
-    public void setChecked(boolean checked) {
-        isChecked = checked;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
     @Override
     public String toString() {
-        return "Costumers{" +
+        return "Costumer{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", orders=" + orders +
-                ", ordersTotal=" + ordersTotal +
-                ", costumerSince='" + costumerSince + '\'' +
-                ", isChecked=" + isChecked +
+                ", nTel='" + nTel + '\'' +
+                ", numRue=" + numRue +
+                ", nomRue='" + nomRue + '\'' +
+                ", codePostal=" + codePostal +
+                ", ville='" + ville + '\'' +
                 '}';
     }
 }

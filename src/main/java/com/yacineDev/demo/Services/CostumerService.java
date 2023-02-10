@@ -30,7 +30,7 @@ public class CostumerService {
     }
     @Transactional
     public List<Costumer> findAllCostumers(){
-        return costumerRepo.findAll() ;
+        return costumerRepo.yacine() ;
     }
     @Transactional
     public  Costumer updateCostumer(Costumer costumer){
