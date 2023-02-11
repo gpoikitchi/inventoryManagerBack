@@ -13,7 +13,7 @@ public interface CostumerRepo extends JpaRepository<Costumer,Long> {
     void deleteCostumerById(Long id);
     Optional<Costumer> findCostumerById(Long id);
 
-    @Query(value = "SELECT * FROM client ;",nativeQuery = true)
-    List<Costumer> yacine();
+    @Query(value = "SELECT * FROM client",nativeQuery = true)
+    List<Costumer> findAllClient();
 
 }

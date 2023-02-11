@@ -19,11 +19,11 @@ public class Costumer implements Serializable{
     @Column(name = "nTel")
     private String nTel;
     @Column(name = "numRue")
-    private int numRue ;
+    private Integer numRue ;
     @Column(name = "nomRue")
     private String nomRue;
     @Column(name = "codePostal")
-    private int codePostal;
+    private Integer codePostal;
     @Column(name = "ville")
     private String ville ;
 
