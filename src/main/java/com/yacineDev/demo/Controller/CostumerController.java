@@ -23,10 +23,35 @@ public class CostumerController {
         List<Costumer> costumers = costumerService.findAllCostumers();
         return new ResponseEntity<>(costumers, HttpStatus.OK);
     }
+    @GetMapping("/all/nameAsc")
+    public ResponseEntity<List<Costumer>> getAllCostumersOrderedByName(){
+        List<Costumer> costumers = costumerService.findAllCostumersOrderedByName();
+        return new ResponseEntity<>(costumers,HttpStatus.OK);
+    }
+    @GetMapping("/all/nameDesc")
+    public ResponseEntity<List<Costumer>> getAllCostumersOrderedByNameDESC(){
+        List<Costumer> costumers = costumerService.findAllCostumersOrderedByNameDESC();
+        return new ResponseEntity<>(costumers,HttpStatus.OK);
+    }
+    @GetMapping("/all/emailAsc")
+    public ResponseEntity<List<Costumer>> getAllCostumersOrderedByEmail(){
+        List<Costumer> costumers = costumerService.findAllCostumersOrderedByEmail();
+        return new ResponseEntity<>(costumers,HttpStatus.OK);
+    }
+    @GetMapping("/all/emailDesc")
+    public ResponseEntity<List<Costumer>> getAllCostumersOrderedByEmailDESC(){
+        List<Costumer> costumers = costumerService.findAllCostumersOrderedByEmailDESC();
+        return new ResponseEntity<>(costumers,HttpStatus.OK);
+    }
     @GetMapping("/find/{id}")
     public ResponseEntity<Costumer> getCostumerById(@PathVariable("id") Long id) {
         Costumer costumer = costumerService.findCostumerById(id);
         return new ResponseEntity<>(costumer, HttpStatus.OK);
+    }
+    @GetMapping("/findCostumers/{input}")
+    public ResponseEntity<List<Costumer>> getCostumerByInput(@PathVariable("input") String input) {
+        List<Costumer> costumers = costumerService.findCostumersByInput(input);
+        return new ResponseEntity<>(costumers, HttpStatus.OK);
     }
 
     @PostMapping("/add")

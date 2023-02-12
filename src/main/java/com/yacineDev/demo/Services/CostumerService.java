@@ -33,6 +33,27 @@ public class CostumerService {
         return costumerRepo.findAllClient() ;
     }
     @Transactional
+    public List<Costumer> findAllCostumersOrderedByName(){
+        return costumerRepo.findAllClientOrderedByName();
+    }
+    @Transactional
+    public List<Costumer> findAllCostumersOrderedByNameDESC(){
+        return costumerRepo.findAllClientOrderedByNameDESC();
+    }
+
+    @Transactional
+    public List<Costumer> findAllCostumersOrderedByEmail(){
+        return costumerRepo.findAllClientOrderedByEmail();
+    }
+    @Transactional
+    public List<Costumer> findAllCostumersOrderedByEmailDESC(){
+        return costumerRepo.findAllClientOrderedByEmailDESC();
+    }
+    @Transactional
+    public List<Costumer> findCostumersByInput(String input){
+        return costumerRepo.findCostumersByInput(input);
+    }
+    @Transactional
     public  Costumer updateCostumer(Costumer costumer){
         return costumerRepo.save(costumer);
     }
