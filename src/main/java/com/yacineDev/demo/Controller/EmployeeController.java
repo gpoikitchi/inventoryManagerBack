@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -24,11 +25,35 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees,HttpStatus.OK);
     }
-
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id) {
-        Employee employee = employeeService.findEmployeeById(id);
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+    @GetMapping("/all/nameAsc")
+    public ResponseEntity<List<Employee>> getAllEmployeesOrderedByName(){
+        List<Employee> employees = employeeService.findAllEmployeesOrderedByName();
+        return new ResponseEntity<>(employees,HttpStatus.OK);
+    }
+    @GetMapping("/all/nameDesc")
+    public ResponseEntity<List<Employee>> getAllEmployeesOrderedByNameDESC(){
+        List<Employee> employees = employeeService.findAllEmployeesOrderedByNameDESC();
+        return new ResponseEntity<>(employees,HttpStatus.OK);
+    }
+    @GetMapping("/all/emailAsc")
+    public ResponseEntity<List<Employee>> getAllEmployeesOrderedByEmail(){
+        List<Employee> employees = employeeService.findAllEmployeesOrderedByEmail();
+        return new ResponseEntity<>(employees,HttpStatus.OK);
+    }
+    @GetMapping("/all/emailDesc")
+    public ResponseEntity<List<Employee>> getAllEmployeesOrderedByEmailDESC(){
+        List<Employee> employees = employeeService.findAllEmployeesOrderedByEmailDESC();
+        return new ResponseEntity<>(employees,HttpStatus.OK);
+    }
+    @GetMapping("/findEmployees/{input}")
+    public ResponseEntity<List<Employee>> getEmployeeByInput(@PathVariable("input") String input) {
+        List<Employee> employees = employeeService.findEmployeesByInput(input);
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+    @GetMapping("/find/role/{id}")
+    public ResponseEntity<String> getEmployeeRole(@PathVariable("id") BigInteger id){
+        String role = employeeService.getEmployeeRole(id);
+        return new ResponseEntity<>(role,HttpStatus.OK);
     }
     @PostMapping("/add")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){

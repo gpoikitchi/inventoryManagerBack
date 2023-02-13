@@ -5,39 +5,61 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="employee")
 public class Employee implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false,updatable = false)
-    private Long id ;
+    @Column(name="idE")
+    private Long idE;
+    @Column(name = "email")
     private String email;
-    private String name ;
-    private String jobTitle ;
-    private String phone ;
-    private String imageUrl ;
-    @Column(nullable = false,updatable = false)
-    private String employeeCode;
+    @Column(name = "nom")
+    private String nom ;
+    @Column(name = "prenom")
+    private String prenom;
+    @Column(name="nTel")
+    private String nTel;
+
+    @Column(name="nomUtilisateur")
+    private String nomUtilisateur;
+
+    @Column(name="motDePasse")
+    private String motDePasse;
+
+    @Column(name="numeroRue")
+    private Integer numRue;
+
+    @Column(name="nomRue")
+    private String nomRue;
+
+    @Column(name="codePostal")
+    private int codePostal;
+
+    @Column(name="ville")
+    private String ville;
 
     public Employee(){
 
     }
-
-    public Employee(Long id, String email, String name, String jobTitle, String phone, String imageUrl, String employeeCode) {
-        this.id = id;
+    public Employee(Long id, String email, String name, String prenom, String nTel, String nomUtilisateur, String motDePasse, int numRue, String nomRue, int codePostal, String ville) {
+        this.idE = id;
         this.email = email;
-        this.name = name;
-        this.jobTitle = jobTitle;
-        this.phone = phone;
-        this.imageUrl = imageUrl;
-        this.employeeCode = employeeCode;
+        this.nom = name;
+        this.prenom = prenom;
+        this.nTel = nTel;
+        this.nomUtilisateur = nomUtilisateur;
+        this.motDePasse = motDePasse;
+        this.numRue = numRue;
+        this.nomRue = nomRue;
+        this.codePostal = codePostal;
+        this.ville = ville;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdE() {
+        return idE;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdE(Long idE) {
+        this.idE = idE;
     }
 
     public String getEmail() {
@@ -49,55 +71,91 @@ public class Employee implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return nom;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nom = name;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getnTel() {
+        return nTel;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setnTel(String nTel) {
+        this.nTel = nTel;
     }
 
-    public String getImage() {
-        return imageUrl;
+    public String getNomUtilisateur() {
+        return nomUtilisateur;
     }
 
-    public void setImage(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setNomUtilisateur(String nomUtilisateur) {
+        this.nomUtilisateur = nomUtilisateur;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    public String getMotDePasse() {
+        return motDePasse;
     }
 
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
+    public Integer getNumRue() {
+        return numRue;
+    }
+
+    public void setNumRue(Integer numRue) {
+        this.numRue = numRue;
+    }
+
+    public String getNomRue() {
+        return nomRue;
+    }
+
+    public void setNomRue(String nomRue) {
+        this.nomRue = nomRue;
+    }
+
+    public int getCodePostal() {
+        return codePostal;
+    }
+
+    public void setCodePostal(int codePostal) {
+        this.codePostal = codePostal;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
+                "id=" + idE +
                 ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                ", jobTitle='" + jobTitle + '\'' +
-                ", phone='" + phone + '\'' +
-                ", image='" + imageUrl + '\'' +
-                ", employeeCode='" + employeeCode + '\'' +
+                ", name='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", phone='" + nTel + '\'' +
+                ", nomUtilisateur='" + nomUtilisateur + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
+                ", numRue=" + numRue +
+                ", nomRue='" + nomRue + '\'' +
+                ", codePostal=" + codePostal +
+                ", ville='" + ville + '\'' +
                 '}';
     }
 }

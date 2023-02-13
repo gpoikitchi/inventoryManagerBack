@@ -16,13 +16,11 @@ import java.util.UUID;
 @Service
 public class CostumerService {
     private final CostumerRepo costumerRepo;
-    private final EmployeeRepo employeeRepo;
+
 
     @Autowired
-    public CostumerService(CostumerRepo costumerRepo,
-                           EmployeeRepo employeeRepo) {
+    public CostumerService(CostumerRepo costumerRepo) {
         this.costumerRepo= costumerRepo;
-        this.employeeRepo = employeeRepo;
     }
     @Transactional
     public Costumer addCostumer(Costumer costumer){

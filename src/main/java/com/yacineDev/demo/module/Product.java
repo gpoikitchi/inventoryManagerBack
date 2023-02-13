@@ -4,27 +4,29 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="produit")
 public class Product implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false,updatable = false)
+    @Column(name = "id_produit")
     private Long id ;
+    @Column(name = "nom")
     private String name ;
+    @Column(name = "category")
+    private String categorie ;
+    @Column(name = "prix_unitaire")
     private float price ;
+   @Column(name="produit_en_stock")
     private int quantity ;
-    private String expirationDate ;
-    private float discount ;
+
 
     Product(){
 
     }
-    public Product(Long id, String name, float price, int quantity, String expirationDate, float discount) {
+    public Product(Long id, String name, float price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.expirationDate = expirationDate;
-        this.discount = discount;
     }
 
     public Long getId() {
@@ -59,22 +61,6 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public float getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(float discount) {
-        this.discount = discount;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
@@ -82,8 +68,6 @@ public class Product implements Serializable {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                ", expirationDate='" + expirationDate + '\'' +
-                ", discount=" + discount +
                 '}';
     }
 }
