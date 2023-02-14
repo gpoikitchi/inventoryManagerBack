@@ -1,17 +1,13 @@
 package com.yacineDev.demo.Services;
 
 import com.yacineDev.demo.Repositories.CostumerRepo;
-import com.yacineDev.demo.Repositories.EmployeeRepo;
 import com.yacineDev.demo.exception.CostumerNotFoundException;
-import com.yacineDev.demo.exception.UserNotFoundException;
 import com.yacineDev.demo.module.Costumer;
-import com.yacineDev.demo.module.Employee;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class CostumerService {
@@ -23,8 +19,9 @@ public class CostumerService {
         this.costumerRepo= costumerRepo;
     }
     @Transactional
-    public Costumer addCostumer(Costumer costumer){
-        return costumerRepo.save(costumer);
+    public Costumer addCostumer(String nom, String prenom, String email, int nTel, int numRue, String nomRue, int codePostal, String ville){
+         costumerRepo.addCostumer(nom,prenom,email,nTel,numRue,nomRue,codePostal,ville);
+        return null ;
     }
     @Transactional
     public List<Costumer> findAllCostumers(){

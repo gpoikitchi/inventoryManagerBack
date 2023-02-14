@@ -1,7 +1,9 @@
 package com.yacineDev.demo.Repositories;
 
 import com.yacineDev.demo.module.Costumer;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -33,4 +35,10 @@ public interface CostumerRepo extends JpaRepository<Costumer,Long> {
 
     @Query(value="DELETE FROM client WHERE id = ?1",nativeQuery = true)
     void deleteCostumerById(Long id);
-}
+
+    @Modifying
+    @Transactional
+    @Query(value="INSERT INTO client (nom,prenom,email,n_tel,num_rue,nom_rue,code_postal,ville) VALUES (?1,?2,?3,?4,?5,?6,?7,?8)",nativeQuery = true)
+    void addCostumer(String nom,String prenom,String email,int nTel,int numRue,String nomRue,int codePostal,String ville);
+
+  }

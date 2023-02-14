@@ -66,6 +66,11 @@ public class ProductController {
         List<Product> products = productService.findAllByOrderByQuantityDesc();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
+    @GetMapping("/find/{input}")
+    public ResponseEntity<List<Product>> findProductsByInput(String input){
+        List<Product> products = productService.findProductsByInput(input);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 
 
 }

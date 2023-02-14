@@ -43,11 +43,13 @@ public class CostumerController {
         List<Costumer> costumers = costumerService.findAllCostumersOrderedByEmailDESC();
         return new ResponseEntity<>(costumers,HttpStatus.OK);
     }
+    /*
     @GetMapping("/find/{id}")
     public ResponseEntity<Costumer> getCostumerById(@PathVariable("id") Long id) {
         Costumer costumer = costumerService.findCostumerById(id);
         return new ResponseEntity<>(costumer, HttpStatus.OK);
     }
+    */
     @GetMapping("/findCostumers/{input}")
     public ResponseEntity<List<Costumer>> getCostumerByInput(@PathVariable("input") String input) {
         List<Costumer> costumers = costumerService.findCostumersByInput(input);
@@ -56,7 +58,15 @@ public class CostumerController {
 
     @PostMapping("/add")
     public ResponseEntity<Costumer> addCostumer(@RequestBody Costumer costumer){
-        Costumer newCostumer = costumerService.addCostumer(costumer);
+        String nom = costumer.getNom();
+        String prenom = costumer.getPrenom();
+        String email = costumer.getEmail();
+        int nTel = Integer.parseInt(costumer.getnTel());
+        int numRue = costumer.getNumRue();
+        String nomRue = costumer.getNomRue();
+        int codePostal = costumer.getCodePostal();
+        String ville = costumer.getVille();
+        Costumer newCostumer = costumerService.addCostumer(nom,prenom,email,nTel,numRue,nomRue,codePostal,ville);
         return new ResponseEntity<>(newCostumer,HttpStatus.CREATED);
     }
 
