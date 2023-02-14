@@ -27,8 +27,46 @@ public class ProductService {
     }
     @Transactional
     public List<Product> findAllProducts(){
-        return productRepo.findAll();
+        return productRepo.findAllProducts();
     }
+    @Transactional
+    public List<Product> findAllProductsOrderedByName(){
+        return productRepo.findAllByOrderByNom();
+    }
+    @Transactional
+    public List<Product> findAllProductsOrderedByNameDESC(){
+        return productRepo.findAllByOrderByNomDesc();
+    }
+    @Transactional
+    public List<Product> findAllProductsOrderedByCategory(){
+        return productRepo.findAllByOrderCategory();
+    }
+    @Transactional
+    public List<Product> findAllProductsOrderedByCategoryDESC(){
+        return productRepo.findAllByOrderCategoryDesc();
+    }
+    @Transactional
+    public List<Product> findProductsByInput(String input){
+        return productRepo.findProductsByInput(input);
+    }
+    @Transactional
+    public List<Product> findAllByOrderByPrice(){
+        return productRepo.findAllByOrderByPrice();
+    }
+    @Transactional
+    public List<Product> findAllByOrderByPriceDesc(){
+        return productRepo.findAllByOrderByPriceDesc();
+    }
+    @Transactional
+    public List<Product> findAllByOrderByQuantity(){
+        return productRepo.findAllByOrderByQuantity();
+    }
+    @Transactional
+    public List<Product> findAllByOrderByQuantityDesc(){
+        return productRepo.findAllByOrderByQuantityDesc();
+    }
+
+
     @Transactional
     public Product updateProduct(Product product){
         return productRepo.save(product);

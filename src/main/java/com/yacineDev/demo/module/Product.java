@@ -12,19 +12,20 @@ public class Product implements Serializable {
     @Column(name = "nom")
     private String name ;
     @Column(name = "category")
-    private String categorie ;
+    private String category ;
     @Column(name = "prix_unitaire")
     private float price ;
    @Column(name="produit_en_stock")
     private int quantity ;
 
 
-    Product(){
-
+    public Product() {
     }
-    public Product(Long id, String name, float price, int quantity) {
+
+    public Product(Long id, String name, String category, float price, int quantity) {
         this.id = id;
         this.name = name;
+        this.category = category;
         this.price = price;
         this.quantity = quantity;
     }
@@ -45,6 +46,14 @@ public class Product implements Serializable {
         this.name = name;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public float getPrice() {
         return price;
     }
@@ -59,15 +68,5 @@ public class Product implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
     }
 }
