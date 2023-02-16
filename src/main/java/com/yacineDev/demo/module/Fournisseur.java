@@ -12,38 +12,38 @@ import java.io.Serializable;
 public class Fournisseur implements Serializable {
     @Id
     @Column(name = "idF")
-    private Long id ;
+    private Long idF;
     @Column(name = "nomF")
-    private String nom ;
+    private String nomF;
     @Column(name = "email")
     private String email;
-    @Column(name = "nTel")
-    private int nTel;
+    @Column(name = "n_tel")
+    private int n_tel;
 
     public Fournisseur() {
     }
 
     public Fournisseur(Long id, String nom, String email, int nTel) {
-        this.id = id;
-        this.nom = nom;
+        this.idF = id;
+        this.nomF = nom;
         this.email = email;
-        this.nTel = nTel;
+        this.n_tel = nTel;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdF() {
+        return idF;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdF(Long idF) {
+        this.idF = idF;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomF() {
+        return nomF;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomF(String nomF) {
+        this.nomF = nomF;
     }
 
     public String getEmail() {
@@ -54,21 +54,21 @@ public class Fournisseur implements Serializable {
         this.email = email;
     }
 
-    public int getnTel() {
-        return nTel;
+    public int getN_tel() {
+        return n_tel;
     }
 
-    public void setnTel(int nTel) {
-        this.nTel = nTel;
+    public void setN_tel(int n_tel) {
+        this.n_tel = n_tel;
     }
 
     @Override
     public String toString() {
         return "Fournisseur{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
+                "id=" + idF +
+                ", nom='" + nomF + '\'' +
                 ", email='" + email + '\'' +
-                ", nTel='" + nTel + '\'' +
+                ", nTel='" + n_tel + '\'' +
                 '}';
     }
 }

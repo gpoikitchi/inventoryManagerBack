@@ -5,9 +5,7 @@ import com.yacineDev.demo.module.Employee;
 import com.yacineDev.demo.module.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -67,9 +65,14 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
     @GetMapping("/find/{input}")
-    public ResponseEntity<List<Product>> findProductsByInput(String input){
+    public ResponseEntity<List<Product>> findProductsByInput(@PathVariable("input") String input){
         List<Product> products = productService.findProductsByInput(input);
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+    @PostMapping("/add")
+    public ResponseEntity<List<Product>> addProduct(Product product){
+        Product newProduct = productService.addProduct(product);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 

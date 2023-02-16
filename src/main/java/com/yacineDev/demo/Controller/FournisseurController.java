@@ -50,9 +50,9 @@ public class FournisseurController {
 
     @PostMapping("/add")
     public ResponseEntity<Fournisseur> addFournisseur( @RequestBody Fournisseur fournisseur){
-        String nom = fournisseur.getNom();
+        String nom = fournisseur.getNomF();
         String email = fournisseur.getEmail();
-        int tel = fournisseur.getnTel();
+        int tel = fournisseur.getN_tel();
         Fournisseur newFournisseur = fournisseurService.addFournisseur(nom,email,tel);
         return new ResponseEntity<>(newFournisseur,HttpStatus.CREATED);
     }

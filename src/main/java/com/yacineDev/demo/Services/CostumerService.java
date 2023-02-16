@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 @Service
 public class CostumerService {
     private final CostumerRepo costumerRepo;
@@ -50,7 +52,8 @@ public class CostumerService {
     }
     @Transactional
     public  Costumer updateCostumer(Costumer costumer){
-        return costumerRepo.save(costumer);
+        costumerRepo.updateCostumer(costumer.getNom(),costumer.getPrenom(),costumer.getEmail(),parseInt(costumer.getnTel()),costumer.getNumRue(),costumer.getNomRue(),costumer.getCodePostal(),costumer.getVille(),costumer.getId());
+        return null;
     }
     @Transactional
     public Costumer findCostumerById(Long id)  {

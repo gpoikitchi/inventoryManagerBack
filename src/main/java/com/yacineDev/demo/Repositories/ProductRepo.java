@@ -28,7 +28,7 @@ public interface ProductRepo extends JpaRepository<Product,Long> {
     List<Product> findAllByOrderByQuantity();
     @Query(value="SELECT * FROM produit ORDER BY produit_en_stock DESC",nativeQuery = true)
     List<Product> findAllByOrderByQuantityDesc();
-    @Query(value="SELECT * FROM produit WHERE id_produit LIKE %?1% OR nom LIKE %?1% OR category LIKE %?1% OR prix_unitaire = ?1",nativeQuery = true)
+    @Query(value="SELECT * FROM produit WHERE nom LIKE %?1% OR category LIKE %?1% ",nativeQuery = true)
     List<Product> findProductsByInput(String input);
     Optional<Product> findProductById(Long id);
 
