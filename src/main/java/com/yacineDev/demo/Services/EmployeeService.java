@@ -10,6 +10,8 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
+import static java.lang.Integer.parseInt;
+
 @Service
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
@@ -41,8 +43,8 @@ public class EmployeeService {
         return employeeRepo.findEmployeesByInput(input);
     }
 
-    public  Employee updateEmployee(Employee employee){
-        return employeeRepo.save(employee);
+    public  void updateEmployee(Employee employee){
+        employeeRepo.updateEmployee(employee.getEmail(),employee.getName(),employee.getPrenom(),parseInt(employee.getnTel()),employee.getNumRue(),employee.getNomRue(),employee.getCodePostal(),employee.getVille(),employee.getNomUtilisateur());
     }
 
     public void deleteEmployee(Long id){

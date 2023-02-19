@@ -40,10 +40,10 @@ public class Employee implements Serializable {
     public Employee(){
 
     }
-    public Employee(Long id, String email, String name, String prenom, String nTel, String nomUtilisateur, String motDePasse, int numRue, String nomRue, int codePostal, String ville) {
+    public Employee(Long id, String email, String nom, String prenom, String nTel, String nomUtilisateur, String motDePasse, int numRue, String nomRue, int codePostal, String ville) {
         this.idE = id;
         this.email = email;
-        this.nom = name;
+        this.nom = nom;
         this.prenom = prenom;
         this.nTel = nTel;
         this.nomUtilisateur = nomUtilisateur;
@@ -74,8 +74,8 @@ public class Employee implements Serializable {
         return nom;
     }
 
-    public void setName(String name) {
-        this.nom = name;
+    public void setName(String nom) {
+        this.nom = nom;
     }
 
     public String getPrenom() {
@@ -147,7 +147,7 @@ public class Employee implements Serializable {
         return "Employee{" +
                 "id=" + idE +
                 ", email='" + email + '\'' +
-                ", name='" + nom + '\'' +
+                ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", phone='" + nTel + '\'' +
                 ", nomUtilisateur='" + nomUtilisateur + '\'' +
