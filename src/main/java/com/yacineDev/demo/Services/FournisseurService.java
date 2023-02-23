@@ -1,6 +1,7 @@
 package com.yacineDev.demo.Services;
 
 import com.yacineDev.demo.Repositories.FournisseurRepo;
+import com.yacineDev.demo.module.Employee;
 import com.yacineDev.demo.module.Fournisseur;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,11 @@ public class FournisseurService {
     @Transactional
     public void deleteFournisseurById(long id){
         fournisseurRepo.deleteFournisseurById(id);
+    }
+    @Transactional
+    public Fournisseur updateFournisseur(Fournisseur fournisseur){
+        fournisseurRepo.updateFournisseur(fournisseur.getNomF(), fournisseur.getEmail(), fournisseur.getN_tel(),fournisseur.getIdF());
+        return null ;
     }
 
 }

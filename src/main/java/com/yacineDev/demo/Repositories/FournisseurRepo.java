@@ -28,6 +28,8 @@ public interface FournisseurRepo extends JpaRepository<Fournisseur,Long> {
     @Query(value="SELECT * FROM fournisseur WHERE nomF LIKE %?1%  OR email LIKE %?1%",nativeQuery = true)
     List<Fournisseur> findFournisseursByInput(String input);
 
+    @Modifying
+    @Transactional
     @Query(value="DELETE FROM fournisseur WHERE idF = ?1",nativeQuery = true)
     void deleteFournisseurById(Long id);
 
@@ -35,5 +37,10 @@ public interface FournisseurRepo extends JpaRepository<Fournisseur,Long> {
     @Transactional
     @Query(value="INSERT INTO fournisseur (nomF,email,n_tel) VALUES (?1,?2,?3)",nativeQuery = true)
     void addFournisseur(String nomF,String email,int n_tel);
+
+    @Modifying
+    @Transactional
+    @Query(value="UPDATE fournisseur SET nomF = ?1,email = ?2,n_tel = ?3 WHERE idF = ?4",nativeQuery = true)
+    void updateFournisseur(String nomF,String email,int n_tel,Long idF);
 
 }

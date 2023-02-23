@@ -53,6 +53,7 @@ public class FournisseurController {
         String nom = fournisseur.getNomF();
         String email = fournisseur.getEmail();
         int tel = fournisseur.getN_tel();
+        System.out.println(tel);
         Fournisseur newFournisseur = fournisseurService.addFournisseur(nom,email,tel);
         return new ResponseEntity<>(newFournisseur,HttpStatus.CREATED);
     }
@@ -61,6 +62,12 @@ public class FournisseurController {
     public ResponseEntity<?> deleteFournisseur(@PathVariable("id") Long id){
         fournisseurService.deleteFournisseurById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<Fournisseur> updateFournisseur(@RequestBody Fournisseur fournisseur){
+        Fournisseur updateFournisseur = fournisseurService.updateFournisseur(fournisseur);
+        return new ResponseEntity<>(updateFournisseur,HttpStatus.OK);
     }
 
 }
