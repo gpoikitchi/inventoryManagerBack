@@ -1,7 +1,9 @@
 package com.yacineDev.demo.Repositories;
 import com.yacineDev.demo.module.Employee;
 import com.yacineDev.demo.module.Product;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public interface ProductRepo extends JpaRepository<Product,Long> {
     List<Product> findAllByOrderByQuantityDesc();
     @Query(value="SELECT * FROM produit WHERE nom LIKE %?1% OR category LIKE %?1% ",nativeQuery = true)
     List<Product> findProductsByInput(String input);
+    @Query(value="SELECT * FROM produit WHERE id_produit = ?1",nativeQuery = true)
     Optional<Product> findProductById(Long id);
+
 
 }
